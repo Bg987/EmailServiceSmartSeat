@@ -2,6 +2,11 @@ server:
   port: 8081
 
 spring:
+  datasource:
+    url: jdbc:postgresql://aws-1-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require
+    username: postgres.axxwxwxnqteramwkrwrn
+    password: 39UknJkH1SsVc16v
+    driver-class-name: org.postgresql.Driver
   threads:
     virtual:
       enabled: true
