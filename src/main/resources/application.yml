@@ -1,36 +1,45 @@
 server:
   port: 8081
-
 spring:
+  kafka:
+    bootstrap-servers: smartseat-bhavyagodhaniya2004-2234.k.aivencloud.com:26025
+
+    properties:
+      security.protocol: SSL
+
+      schema.registry.url: ${KAFKA_URL}
+
+      basic.auth.credentials.source: USER_INFO
+      basic.auth.user.info: ${KAFKA_PASSWORD}
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+    consumer:
+      group-id: my-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+      properties:
+        spring.json.value.default.type: java.util.HashMap
+        spring.json.trusted.packages: "*"
+
   datasource:
     url: jdbc:postgresql://aws-1-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require
     username: postgres.axxwxwxnqteramwkrwrn
-    password: 39UknJkH1SsVc16v
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
   threads:
     virtual:
       enabled: true
   application:
     name: SmartSeatEmail
-
-  kafka:
-    bootstrap-servers: localhost:9092
-    consumer:
-      group-id: email-group
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      properties:
-        spring.json.value.default.type: "java.util.HashMap"
-        spring.json.trusted.packages: "*"
-        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
-
   mail:
     host: smtp.gmail.com
     port: 587
-    username: bhavyagodhaniya2004@gmail.com # Replace with your Gmail
-    password: pidauehekmvbiasv
-    # Replace with your 16-digit App Password
+    username: bhavyagodhaniya2004@gmail.com
+    password: ${MAIL_PASSWORD}
     properties:
       mail:
         smtp:

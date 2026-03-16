@@ -27,19 +27,19 @@ public class EmailConsumer {
     // This method runs automatically when a message arrives
     @KafkaListener(topics = "collegeRegisterTopic", groupId = "email-group")
     public void college(Map<String, String> registrationData) {
-
+        System.out.println("call collge");
         userDTO emailData = setU.setdto(registrationData,"addCollege");
         sendMail.sendWelcomeEmail(emailData,null);
     }
 
-    @KafkaListener(topics = "studentRegisterTopic", groupId = "email-group")
-    public void student(Map<String, String> registrationData) {
-        userDTO emailData= setU.setdto(registrationData,"addStudent");
-        Long collegeId = Long.parseLong(registrationData.get("collegeId"));
-        collegeDetailsDTO Collegedata =  repocollege.findCollegeDetailsById((collegeId))
-                .orElseThrow(() -> new RuntimeException("College not found with id: " + collegeId));
-        sendMail.sendWelcomeEmail(emailData,Collegedata);
-    }
+//    @KafkaListener(topics = "studentRegisterTopic", groupId = "email-group")
+//    public void student(Map<String, String> registrationData) {
+//        userDTO emailData= setU.setdto(registrationData,"addStudent");
+//        Long collegeId = Long.parseLong(registrationData.get("collegeId"));
+//        collegeDetailsDTO Collegedata =  repocollege.findCollegeDetailsById((collegeId))
+//                .orElseThrow(() -> new RuntimeException("College not found with id: " + collegeId));
+//        sendMail.sendWelcomeEmail(emailData,Collegedata);
+//    }
 
 //    @EventListener(ApplicationReadyEvent.class)
 //    public void runAfterStartup() {

@@ -28,6 +28,7 @@ public class EmailSendService {
     @Async
     public void sendWelcomeEmail(userDTO user, collegeDetailsDTO college) {
         try {
+            System.out.println("mail method call");
             MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
 
