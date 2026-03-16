@@ -25,6 +25,6 @@ public class College {
     private String address;
 
     @OneToOne
-    @JoinColumn(name = "userid") // for join perpose for contact and mobile number
+    @JoinColumn(name = "user_id") // for join perpose for contact and mobile number
     private User user;
 }

@@ -35,14 +35,23 @@ spring:
       enabled: true
   application:
     name: SmartSeatEmail
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: bhavyagodhaniya2004@gmail.com
-    password: ${MAIL_PASSWORD}
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
+  spring:
+    mail:
+      host: smtp.gmail.com
+      port: 465
+      username: bhavyagodhaniya2004@gmail.com
+      password: ${MAIL_PASSWORD}
+      properties:
+        mail:
+          smtp:
+            auth: true
+            # Port 465 uses SSL, so starttls should be false
+            starttls:
+              enable: false
+            # SSL Configuration for Render/Production environments
+            ssl:
+              enable: true
+            socketFactory:
+              port: 465
+              class: javax.net.ssl.SSLSocketFactory
+              fallback: false
