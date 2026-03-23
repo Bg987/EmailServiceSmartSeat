@@ -1,9 +1,9 @@
 server:
-  port: 8081
+  port: 8082
 spring:
   mail:
     host: smtp.gmail.com
-    port: 465
+    port: 587
     username: bhavyagodhaniya2004@gmail.com
     password: ${MAIL_PASSWORD}
     properties:
