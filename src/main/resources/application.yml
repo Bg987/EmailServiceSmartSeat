@@ -3,9 +3,10 @@ server:
 spring:
   mail:
     host: smtp-relay.brevo.com
-    port: 587  # Try 2525 if 587 fails on Render
+    port: 587
     username: 7ba892001@smtp-brevo.com
-    password: ${BREVO_SMTP_KEY} # Set this in Render Env Vars
+    # Your SMTP Login
+    password: ${BREVO_SMTP_KEY}            # THE 64-CHAR KEY, NOT THE NAME
     properties:
       mail:
         smtp:
@@ -13,6 +14,8 @@ spring:
           starttls:
             enable: true
             required: true
+          ssl:
+            trust: smtp-relay.brevo.com
   kafka:
     bootstrap-servers: smartseat-bhavyagodhaniya2004-2234.k.aivencloud.com:26025
 

@@ -32,26 +32,32 @@ public class EmailSendService {
             MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
 
+            // --- ADD THIS LINE (Must match your Brevo Verified Sender) ---
+            helper.setFrom("bhavyagodhaniya2004@gmail.com");
+            // -------------------------------------------------------------
+
             Context context = new Context();
             context.setVariable("name", user.name());
             context.setVariable("password", user.password());
             context.setVariable("email" , user.email());
-            if(college!=null){
+
+            if(college != null) {
                 context.setVariable("collegeName", college.collegeName());
                 context.setVariable("address", college.address());
                 context.setVariable("mobileNumber", college.mobileNumber());
                 context.setVariable("mail", college.mail());
             }
-            // This refers to welcome-email.html in src/main/resources/templates
+
             String htmlContent = templateEngine.process(user.templateName(), context);
 
             helper.setTo(user.email());
-            helper.setSubject("Welcome to SmartSeat AI!"+(college!=null?" student":""));
+            helper.setSubject("Welcome to SmartSeat AI!" + (college != null ? " student" : ""));
             helper.setText(htmlContent, true);
 
             mailSender.send(message);
             System.out.println(">> Email sent successfully to: " + user.email());
         } catch (Exception e) {
+            e.printStackTrace();
             System.err.println(">> Failed to send email: " + e.getMessage());
         }
     }
