@@ -2,10 +2,10 @@ server:
   port: 8082
 spring:
   mail:
-    host: smtp.gmail.com
-    port: 587
-    username: bhavyagodhaniya2004@gmail.com
-    password: ${MAIL_PASSWORD}
+    host: smtp-relay.brevo.com
+    port: 2525  # Try 2525 if 587 fails on Render
+    username: your-brevo-email@example.com
+    password: ${BREVO_SMTP_KEY} # Set this in Render Env Vars
     properties:
       mail:
         smtp:
