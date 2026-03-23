@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08918f80-d4b2-4f63-a14c-7f979ac781cf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-    </list>
+    <list default="true" id="08918f80-d4b2-4f63-a14c-7f979ac781cf" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,7 +94,7 @@
         <env name="DB_PASSWORD" value="39UknJkH1SsVc16v" />
         <env name="KAFKA_PASSWORD" value="avnadmin:AVNS_QLql6cXOUcKQH40-yz8" />
         <env name="KAFKA_URL" value="https://avnadmin:AVNS_QLql6cXOUcKQH40-yz8@smartseat-bhavyagodhaniya2004-2234.k.aivencloud.com:26028" />
-        <env name="MAIL_PASSWORD" value="ngkzmlhvozuzqqft" />
+        <env name="BREVO_SMTP_KEY" value="xsmtpsib-baddc9d843c0df8ec9e765d649cc3598daef696ec1d25168bc42b93326024bab-Gwlum8cCTHM4IN6d" />
       </envs>
       <module name="SmartSeatEmail" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.SmartSeatEmail.SmartSeatEmailApplication" />

@@ -3,8 +3,8 @@ server:
 spring:
   mail:
     host: smtp-relay.brevo.com
-    port: 2525  # Try 2525 if 587 fails on Render
-    username: your-brevo-email@example.com
+    port: 587  # Try 2525 if 587 fails on Render
+    username: 7ba892001@smtp-brevo.com
     password: ${BREVO_SMTP_KEY} # Set this in Render Env Vars
     properties:
       mail:
