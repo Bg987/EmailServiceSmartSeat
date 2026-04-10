@@ -6,7 +6,7 @@ spring:
     port: 587
     username: 7ba892001@smtp-brevo.com
     # Your SMTP Login
-    password: ${BREVO_SMTP_KEY}            # THE 64-CHAR KEY, NOT THE NAME
+    password: "kjbfghjfhjfhjf"            # THE 64-CHAR KEY, NOT THE NAME
     properties:
       mail:
         smtp:
